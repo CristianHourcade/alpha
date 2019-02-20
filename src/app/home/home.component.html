@@ -1,20 +1,4 @@
-<!-- <div class="d-flex bg-negro" style="width:100%;height:100vh">
-  <div class="mx-auto my-auto">
-  <h1 class="text-white efectoentr">
-    <a class="t1">P</a>
-    <a class="t2">H</a>
-    <a class="t3">A</a>
-    <a class="t4">L</a>
-    <a class="t5">P</a>
-    <a class="t6">H</a>
-    <a class="t7">A</a>
-    <a class="t8">G</a>
-    <a class="t9">O</a>
-    <a class="t10">L</a>
-    <a class="t11">F</a>
-  </h1>
-</div>
-</div> -->
+
 <span class="v{{inicio}}">
 
   <section class="fondo-l" *ngIf="popup">
@@ -64,8 +48,8 @@
                 <mat-list class="text-white">
                   <mat-list-item>
                     <div class="input-group">
-                      <input type="text" placeholder="Categorias & Modelos" class="form-control" />
-                      <span class="input-group-addon" style="padding:6px 20px;">
+                      <input type="text" placeholder="Categorias & Modelos" class="form-control" [(ngModel)]="busqueda" name="busqueda"/>
+                      <span class="input-group-addon cp" style="padding:6px 20px;" routerLink="/busqueda/{{busqueda}}">
                         <i class="glyphicon glyphicon-search" style="position: relative;
                             right: 5px;
                             top: 3px;"></i>

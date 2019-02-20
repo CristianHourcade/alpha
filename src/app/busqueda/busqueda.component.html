@@ -1,0 +1,114 @@
+<div class="container-fluid" style="height:100vh">
+  <div class="row" style="height:100vh">
+    <div class="col-md-2 px-0 menu">
+      <app-side></app-side>
+    </div>
+    <div class="col-md-10 col-12">
+      <div class="row">
+        <div class="col-12 px-0 hide-note">
+          <div class="py-3 bg-dark d-flex px-4">
+            <img src="/assets/logoAlpha.png" style="height:85px">
+            <i class="material-icons ml-auto my-auto" style="font-size: 40px;color:white;" (click)="menu = true">menu</i>
+            <i class="material-icons ml-auto"
+            style="font-size: 40px;color:white;left: 86%;position: fixed; z-index: 99999999999999999999999999999999" (click)="menu = false"
+            *ngIf="menu">close</i>
+          </div>
+          <app-side *ngIf="menu"></app-side>
+
+        </div>
+      </div>
+      <div class="row my-5">
+        <div class="col-md-12 d-flex text-center">
+          <p class="display-3 mx-auto my-auto">RESULTADOS DE LA BUSQUEDA {{busqueda}}
+          </p>
+
+        </div>
+   
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+      <div *ngFor="let x of resultSearch; let i = index" class="row tarjeta{{(i%2) ?  1 :  0}}">
+        <!-- {{(i%2) ?  0 :  1}} -->
+        <div class="col-md-6 d-flex" *ngIf="i%2 === 0">
+          <div class="my-auto mx-auto py-5">
+            <p class="display-2">{{x.nombrePack | uppercase}}</p>
+            <p class="display-4">PH {{x.fotografo | uppercase}}</p>
+            <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
+
+            <div class="my-4">
+              <i class="material-icons bg-icon mr-2">favorite</i><b class="display-4 mr-5">{{x.likes}}</b>
+              <!-- <i class="material-icons bg-icon mr-2">message</i><b class="display-4">{{x.comentarios}}</b> -->
+            </div>
+            <p><button mat-raised-button class="so btn-veralbum-1" routerLink="/{{x.modelo}}/{{x.nombrePack}}"> VER
+                PERFIL <i class="material-icons  cp;" style="    position: relative;
+                top: -1.88px;">keyboard_arrow_right</i></button></p>
+          </div>
+        </div>
+        <div class="col-md-6 px-0 cover" *ngIf="i%2 === 0" [style.background-image]="'url('+x.portada+')'">
+        </div>
+
+        <div class="col-md-6 px-0 cover" *ngIf="i%2  !== 0" [style.background-image]="'url('+x.portada+')'">
+          <!-- <img src="{{x.foto}}" style="width:100%"> -->
+        </div>
+        <div class="col-md-6 d-flex" *ngIf="i%2 !== 0">
+          <div class="my-auto mx-auto py-5">
+            <p class="display-2">{{x.nombrePack | uppercase}}</p>
+            <p class="display-4">PH {{x.fotografo | uppercase}}</p>
+            <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
+
+            <div class="my-4">
+              <i class="material-icons bg-icon mr-2">favorite</i><b class="display-4 mr-5">{{x.likes}}</b>
+              <!-- <i class="material-icons bg-icon mr-2">message</i><b class="display-4">{{x.comentarios}}</b> -->
+            </div>
+            <p><button mat-raised-button class="so btn-veralbum-1" routerLink="/{{x.modelo}}/{{x.nombrePack}}"> VER
+                PERFIL <i class="material-icons  cp;" style="    position: relative;
+                  top: -1.88px;">keyboard_arrow_right</i></button></p>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let x of resultSearchTwo; let i = index" class="row tarjeta{{(i%2) ?  0 :  1}}">
+        <!-- {{(i%2) ?  0 :  1}} -->
+        <div class="col-md-6 d-flex" *ngIf="i%2 === 0">
+          <div class="my-auto mx-auto py-5">
+            <p class="display-2">{{x.nombre | uppercase}}</p>
+            <p class="display-4">PH {{x.fotografo | uppercase}}</p>
+            <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
+
+            <div class="my-4">
+              <i class="material-icons bg-icon mr-2">favorite</i><b class="display-4 mr-5">{{x.likes}}</b>
+              <!-- <i class="material-icons bg-icon mr-2">message</i><b class="display-4">{{x.comentarios}}</b> -->
+            </div>
+            <p><button mat-raised-button class="so btn-veralbum-1" routerLink="/{{x.modelo}}/{{x.nombrePack}}"> VER
+                PERFIL <i class="material-icons  cp;" style="    position: relative;
+                top: -1.88px;">keyboard_arrow_right</i></button></p>
+          </div>
+        </div>
+        <div class="col-md-6 px-0 cover" *ngIf="i%2 === 0" [style.background-image]="'url('+x.foto+')'">
+        </div>
+
+        <div class="col-md-6 px-0 cover" *ngIf="i%2  !== 0" [style.background-image]="'url('+x.foto+')'">
+          <!-- <img src="{{x.foto}}" style="width:100%"> -->
+        </div>
+        <div class="col-md-6 d-flex" *ngIf="i%2 !== 0">
+          <div class="my-auto mx-auto py-5">
+            <p class="display-2">{{x.nombrePack | uppercase}}</p>
+            <p class="display-4">PH {{x.fotografo | uppercase}}</p>
+            <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
+
+            <div class="my-4">
+              <i class="material-icons bg-icon mr-2">favorite</i><b class="display-4 mr-5">{{x.likes}}</b>
+              <!-- <i class="material-icons bg-icon mr-2">message</i><b class="display-4">{{x.comentarios}}</b> -->
+            </div>
+            <p><button mat-raised-button class="so btn-veralbum-1" routerLink="/{{x.modelo}}/{{x.nombrePack}}"> VER
+                PERFIL <i class="material-icons  cp;" style="    position: relative;
+                  top: -1.88px;">keyboard_arrow_right</i></button></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

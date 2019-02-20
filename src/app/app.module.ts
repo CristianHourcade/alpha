@@ -98,6 +98,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { ModelosComponent } from './modelos/modelos.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { MistrabajosComponent } from './mistrabajos/mistrabajos.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -140,7 +141,8 @@ import { MistrabajosComponent } from './mistrabajos/mistrabajos.component';
     CategoriasComponent,
     ModelosComponent,
     ContactoComponent,
-    MistrabajosComponent
+    MistrabajosComponent,
+    BusquedaComponent
   ],
   imports: [
     AppRoutingModule,

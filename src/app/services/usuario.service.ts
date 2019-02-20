@@ -13,9 +13,13 @@ export class UsuarioService {
   listPacks: AngularFireList<any>;
   listModelos: AngularFireList<any>;
   listClients: AngularFireList<any>;
+  listTrabajo: AngularFireList<any>;
 
   returnListClient(){
     return this.listClients = this.fireBase.list("clientes");
+  }
+  returnListTrabajos(){
+    return this.listTrabajo = this.fireBase.list("trabajos");
   }
   returnListPacks() {
     return this.listPacks = this.fireBase.list("packs");

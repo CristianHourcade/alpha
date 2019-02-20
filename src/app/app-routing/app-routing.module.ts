@@ -36,6 +36,7 @@ import { CategoriasComponent } from '../categorias/categorias.component';
 import { ModelosComponent } from '../modelos/modelos.component';
 import { ContactoComponent } from '../contacto/contacto.component';
 import { MistrabajosComponent } from '../mistrabajos/mistrabajos.component';
+import { BusquedaComponent } from '../busqueda/busqueda.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'trabajos', component: MistrabajosComponent },  
   { path: 'categorias', component: CategoriasComponent },
   { path: 'modelos', component: ModelosComponent },
-  { path: 'contacto', component: ContactoComponent },  
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'busqueda/:busqueda', component: BusquedaComponent},  
   { path: ':nombredemodelo/:nombrealbum', component: ItemalbumComponent},  
   { path: ':nombredemodelo', component: PerfilComponent},
   { path: 'cliente-backend',component: BackendStandardComponent},

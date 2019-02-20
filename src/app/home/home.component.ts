@@ -21,9 +21,12 @@ export class HomeComponent implements OnInit {
   contra;
   cliente;
   ok;
+  busqueda;
+
   constructor(
     private dashboardService: UsuarioService
   ) {
+    this.busqueda = "";
     this.ok = true;
     this.cliente = null;
     this.validarRegistro = false;

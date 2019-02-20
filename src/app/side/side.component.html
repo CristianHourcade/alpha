@@ -8,11 +8,12 @@
       <mat-list class="text-white">
         <mat-list-item>
           <div class="input-group">
-            <input type="text" placeholder="Categorias & Modelos" class="form-control" />
-            <span class="input-group-addon" style="padding:6px 20px;">
+            <input type="text" placeholder="Categorias & Modelos" class="form-control" [(ngModel)]="busqueda"
+              name="busqueda" />
+            <span class="input-group-addon cp" style="padding:6px 20px;" routerLink="/busqueda/{{busqueda}}">
               <i class="glyphicon glyphicon-search" style="position: relative;
-                  right: 5px;
-                  top: 3px;"></i>
+                            right: 5px;
+                            top: 3px;"></i>
             </span>
           </div>
         </mat-list-item>
@@ -75,8 +76,8 @@
               </div>
             </div>
             <div class="col-md-12 mt-3">
-                <b class="my-3 text-danger" *ngIf="validarRegistro">* Error al iniciar sesion, por favor revise los
-                    campos</b>
+              <b class="my-3 text-danger" *ngIf="validarRegistro">* Error al iniciar sesion, por favor revise los
+                campos</b>
               <button class="btn btn-primary btn-inicio" (click)="iniciarSesion()">INICIAR SESION</button>
             </div>
             <div class="col-12 my-1">

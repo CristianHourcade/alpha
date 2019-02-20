@@ -15,7 +15,8 @@ export class SideComponent implements OnInit {
   variables;
   validarRegistro;
   ok;
-
+  busqueda;
+  
   constructor(
     private dashboardService : UsuarioService
   ) 
