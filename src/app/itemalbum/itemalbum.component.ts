@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
 
+
+declare var js: { activatePaypal: Function, mostrarTexto: Function };
 @Component({
   selector: 'app-itemalbum',
   templateUrl: './itemalbum.component.html',
@@ -17,10 +19,13 @@ export class ItemalbumComponent implements OnInit {
   lightBox;
   urlSeleccion;
 
+  clientIsInPack : boolean;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private DashboardService: UsuarioService
-  ) { 
+  ) {
+    this.clientIsInPack = false;
     this.urlSeleccion = "";
     this.lightBox = false;
     this.listComentarios = [];
@@ -34,12 +39,14 @@ export class ItemalbumComponent implements OnInit {
   isLike;
 
 
-  abrirFoto(url){
+  abrirFoto(url) {
     this.urlSeleccion = url;
     this.lightBox = true;
   }
 
   ngOnInit() {
+    const usuario = localStorage.getItem("cliente");
+    console.log();
     const modelo = this.activatedRoute.snapshot.paramMap.get("nombredemodelo")
     this.DashboardService.returnListModelos()
       .snapshotChanges()
@@ -51,9 +58,10 @@ export class ItemalbumComponent implements OnInit {
             this.modelo = x;
           }
         });
+        console.log(document.getElementsByClassName("paypal-button-text"));
       });
-
-    this.DashboardService.returnListPacks()
+      var auxX = true;
+     this.DashboardService.returnListPacks()
       .snapshotChanges()
       .subscribe(Data => {
         Data.forEach(element => {
@@ -61,13 +69,35 @@ export class ItemalbumComponent implements OnInit {
           if (x["modelo"] === modelo && this.activatedRoute.snapshot.paramMap.get("nombrealbum") === x["nombrePack"]) {
             x["$key"] = element.key;
             this.pack = x;
-            this.listComentarios = Object.values(this.pack.comentarios);
+            if (this.pack.comentarios !== undefined) {
+              this.listComentarios = Object.values(this.pack.comentarios);
+            }
             this.fotos = this.pack.fotos;
             this.fotos = Object.values(this.fotos);
             this.tags = Object.values(this.pack.tag);
+            /*** ACORDATE QUE FALTA ESTO */
+            if (this.pack.usuario !== undefined) {
+              let aux = Object.values(this.pack.usuario);
+              aux.map(data => {
+                if(data === usuario){
+                  this.clientIsInPack = true;
+                }
+              });
+              
+              this.pack.usuario = Object.values(this.pack.usuario);
+              this.pack.usuario.push(usuario);
+            } else {
+              this.pack.usuario = [];
+              this.pack.usuario.push(usuario)
+            }
+
+            this.url = "url(" + this.pack.portada + ")";
+            if(!this.clientIsInPack && auxX === true){
+              js.activatePaypal(this.pack);
+              x = false;
+            }
           }
         });
-        this.url = "url(" + this.pack.portada + ")";
         this.DashboardService.returnListClient()
           .snapshotChanges()
           .subscribe(data => {
@@ -77,9 +107,9 @@ export class ItemalbumComponent implements OnInit {
               x["$key"] = element.key;
               if (x["email"] === localStorage.getItem("cliente")) {
                 this.cliente = x;
-                if(Object.values(this.cliente.likes).indexOf(this.pack.nombrePack) === -1){
+                if (Object.values(this.cliente.likes).indexOf(this.pack.nombrePack) === -1) {
                   this.isLike = false;
-                }else{
+                } else {
                   this.isLike = true;
                 }
               }
@@ -98,16 +128,16 @@ export class ItemalbumComponent implements OnInit {
 
     console.log(index);
 
-    if(index !== -1){
-      aux.splice(index,1);
+    if (index !== -1) {
+      aux.splice(index, 1);
       pack.likes--;
       this.modelo.likes--;
-    }else{
+    } else {
       pack.likes++;
       this.modelo.likes++;
       aux.push(pack.nombrePack);
     }
-    
+
     this.cliente.likes = aux;
     console.log(this.modelo);
     this.DashboardService.modificarModelo(this.modelo);
@@ -115,13 +145,13 @@ export class ItemalbumComponent implements OnInit {
     console.log(pack);
     this.DashboardService.modificarPack(pack);
   }
-  enviarComentario(){
-    if(localStorage.getItem("cliente") !== null){
+  enviarComentario() {
+    if (localStorage.getItem("cliente") !== null) {
       this.listComentarios.push(this.comentario);
       this.comentario = "";
       this.pack.comentarios = this.listComentarios;
       console.log(this.pack);
-      this.DashboardService.modificarPack(this.pack);    
+      this.DashboardService.modificarPack(this.pack);
     }
   }
 }

@@ -157,10 +157,15 @@
 .move-r{
     animation: move-r 2s infinite;
 }
-
+.mobile-h{
+    height: 100%;
+}
 
 
 @media screen and (max-width: 768px) {
+    .mobile-h{
+        height: 100vh!important;
+    }
     .menu{
         display: flex!important;
     }

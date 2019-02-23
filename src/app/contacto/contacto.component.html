@@ -1,16 +1,29 @@
 <div class="container-fluid" style="height:100vh">
   <div class="row" style="height:100vh">
-    <div class="col-md-2 px-0 ">
+    <div class="col-md-2 px-0 menu">
       <app-side></app-side>
     </div>
     <div class="col-md-10 col-12">
       <div class="row">
+        <div class="col-12 px-0 hide-note">
+          <div class="py-3 bg-dark d-flex px-4">
+            <img src="/assets/logoAlpha.png" style="height:85px">
+            <i class="material-icons ml-auto my-auto" style="font-size: 40px;color:white;" (click)="menu = true">menu</i>
+            <i class="material-icons ml-auto"
+            style="font-size: 40px;color:white;left: 86%;position: fixed; z-index: 99999999999999999999999999999999" (click)="menu = false"
+            *ngIf="menu">close</i>
+          </div>
+          <app-side *ngIf="menu"></app-side>
+
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12 perfil d-flex px-0">
           <div class="fondo-b">
-            <div class="foto my-auto" style="margin-left:8rem;">
+            <div class="foto my-auto mobile" style="margin-left:8rem;">
               <img src="https://pbs.twimg.com/profile_images/1080353750076788737/R9xtY____400x400.jpg">
             </div>
-            <div class="my-auto text-white" style="margin-left:8rem">
+            <div class="my-auto text-white contenedor-com">
               <p class="text-white display-1 os title">ADRIAN</p>
               <p class="display-4">FOTOGRAFO PROFESIONAL DESDE 20/10/2005</p>
               <p class="display-4">MÁS DE 1000 TRABAJOS REALIZADOS</p>

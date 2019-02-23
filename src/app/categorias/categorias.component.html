@@ -40,7 +40,7 @@
         <!-- {{(i%2) ?  0 :  1}} -->
         <div class="col-md-6 d-flex" *ngIf="i%2 === 0">
           <div class="my-auto mx-auto py-5">
-            <p class="display-2">{{x.nombrePack | uppercase}}</p>
+            <p class="display-2">{{x.nombrePack | uppercase | changeline}}</p>
             <p class="display-4">PH {{x.fotografo | uppercase}}</p>
             <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
 
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-6 d-flex" *ngIf="i%2 !== 0">
           <div class="my-auto mx-auto py-5">
-            <p class="display-2">{{x.nombrePack | uppercase}}</p>
+            <p class="display-2">{{x.nombrePack | uppercase | changeline}}</p>
             <p class="display-4">PH {{x.fotografo | uppercase}}</p>
             <p class="display-4 text-muted">Modelo desde {{x.fecha | uppercase}}</p>
 

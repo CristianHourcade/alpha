@@ -209,6 +209,12 @@
     display: flex;
     background: #0000007d;
 }
+.item-img{
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
+}
 .tarjeta{
     box-shadow: 6px 0px 20px #00000087;
 }

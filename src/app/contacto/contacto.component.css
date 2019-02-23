@@ -51,3 +51,195 @@
 .tarjeta{
     box-shadow: 6px 0px 20px #00000087;
 }
+.categoria{
+    background: #f3f3f3;
+    border: 1px solid #e7e7e7;
+    height: 80px;
+    width: 230px;
+    font-size: 20px;
+}
+.mobile{
+    display: block;
+}
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+@media screen and (max-width: 768px) {
+    .contenedor-com{
+        margin-left:0rem!important;
+        padding: 40px;
+    }
+    .mobile{
+        display:none!important;
+    }
+    .menu{
+        display: none!important;
+    }
+    .hide-note{
+        display:block!important;
+    }
+    .tarjeta,.tarjeta0{
+        display: flex;
+        -webkit-box-orient: vertical!important;
+        -webkit-box-direction: reverse!important;
+        -ms-flex-direction: column-reverse!important;
+        flex-direction: column-reverse!important;    
+    }
+}
+.hide-note{
+    display:none;
+}
+.perfil{
+    background-size: cover;
+    background-position: center center;
+}
+.menu{
+    display: block;
+}
+.foto{
+    width: 250px;
+    height: 250px;
+}
+.foto>img{
+    border-radius: 100%;
+    width: 100%;
+    box-shadow: 6px 4px 12px #040404;
+    height: 100%;
+}
+.btn-veralbum-1{
+    background: #191919;
+    color: white;
+    font-family: "Oswald";
+}
+.bg-icon{
+    background:#ffa936;
+    color:white;
+    padding:10px;
+    border-radius: 100%;
+}
+.btn-veralbum-2{
+    background: white;
+    color: #191919;
+    font-family: "Oswald";
+}
+.tarjeta-dos, .tarjeta1{
+    background: #000000f2;
+    color: white;
+}
+.display-4{
+    font-size: 2.5rem;
+}
+.title{
+    text-shadow: 2px 2px 1px #1e1e1e;
+}
+.fondo-b{
+    width: 100%;
+    position: relative;
+    display: flex;
+    background: #0000007d;
+}
+.tarjeta,.tarjeta0{
+    box-shadow: 6px 0px 20px #00000087;
+}
+.categoria{
+    background: #f3f3f3;
+    border: 1px solid #e7e7e7;
+    height: 80px;
+    width: 230px;
+    font-size: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+.menus{
+    z-index: 999;
+    position: absolute;
+    left: 31%;
+    width: 200px;
+    box-shadow: 2px 3px 8px #3b3b3b;
+    background: #eeeeeed9;
+    padding: 20px;
+    font-size: 21px;
+}
+@media screen and (max-width: 768px) {
+    .menu{
+        display: none!important;
+    }
+    .hide-note{
+        display:block!important;
+    }
+    .tarjeta,.tarjeta0{
+        display: flex;
+        -webkit-box-orient: vertical!important;
+        -webkit-box-direction: reverse!important;
+        -ms-flex-direction: column-reverse!important;
+        flex-direction: column-reverse!important;    
+    }
+}
+.cp{
+    cursor: pointer;
+}
+.cover{
+    background-size: cover;
+    height: 350px;
+}
+.hide-note{
+    display:none;
+}
+.perfil{
+    background-size: cover;
+    background-position: center center;
+}
+.menu{
+    display: block;
+}
+.foto{
+    width: 250px;
+    height: 250px;
+}
+.foto>img{
+    border-radius: 100%;
+    width: 100%;
+    box-shadow: 6px 4px 12px #040404;
+    height: 100%;
+}
+.btn-veralbum-1{
+    background: #191919;
+    color: white;
+    font-family: "Oswald";
+}
+.bg-icon{
+    background:#ffa936;
+    color:white;
+    padding:10px;
+    border-radius: 100%;
+}
+.btn-veralbum-2{
+    background: white;
+    color: #191919;
+    font-family: "Oswald";
+}
+.tarjeta-dos,.tarjeta1{
+    background: #000000f2;
+    color: white;
+}
+.display-4{
+    font-size: 2.5rem;
+}
+.title{
+    text-shadow: 2px 2px 1px #1e1e1e;
+}
+.bg-dark{
+    background: #151516!important;
+}
+.fondo-b{
+    width: 100%;
+    position: relative;
+    display: flex;
+    background: #0000007d;
+}
+.tarjeta,.tarjeta0{
+    box-shadow: 6px 0px 20px #00000087;
+}
+.contenedor-com{
+    margin-left:8rem;
+}

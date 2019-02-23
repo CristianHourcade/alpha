@@ -35,12 +35,12 @@
       <div class="container-fluid h100">
         <div class="row h100">
           <div class="col-12 menu">
-            <i class="material-icons ml-auto text-white" style="font-size:45px;" *ngIf="!Menu"
+            <i class="material-icons ml-auto my-auto text-white" style="font-size:45px;" *ngIf="!Menu"
               (click)="Menu = true">menu</i>
           </div>
           <div class="col-md-2 bg-left db-hide" *ngIf="Menu">
             <i class="material-icons clear" (click)="Menu = false">clear</i>
-            <div class="row h100 text-white">
+            <div class="row h100 text-white mobile-h">
               <div class="col-md-12 text-center mt-3">
                 <a class="h5"><img src="/assets/logoAlpha.png" style="width:70%"></a>
               </div>
@@ -99,16 +99,17 @@
 
             <div class="mt-auto" style="width: 100%;">
               <div class="mt-4">
-                <p class="h1 text-white display-3 t-title" id="titulo1">{{portada.nombrePack}}</p>
+                <p class="h1 text-white display-3 t-title" id="titulo1">{{portada.nombrePack | changeline}}</p>
                 <p class="h2 text-white display-4 t-title2" id="subtitulo1"
                   style="font-size:40px;position:relative;top:-10px;text-shadow: 2px 2px 4px #00000099;">
-                  {{portada.modelo}}</p>
+                  {{portada.modelo | changeline}}</p>
                 <p class="mb-3 mt-2"><button mat-raised-button class="album " id="album"
                     routerLink="/{{portada.modelo}}/{{portada.nombrePack}}">
+        
                     <b>VER ALBUM</b> <i class="material-icons  cp;">keyboard_arrow_right</i>
                   </button></p>
                 <p style="text-align:end" class="text-white mb-1">
-                  <i class="material-icons f-32 b-r cp" (click)="moverIzquierda()">keyboard_arrow_left</i>
+                  <i class="material-icons f-32 b-r cp" (click)="moverIzquierda()">keyboard_arrow_left </i>
                   <i class="material-icons f-32 b-r cp" (click)="moverDerecha()">keyboard_arrow_right</i>
 
                 </p>

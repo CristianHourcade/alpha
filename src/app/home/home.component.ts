@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { keyframes } from '@angular/animations';
 
+declare var js : { activatePaypal : Function }
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  holax
   Menu: boolean;
   listadoPack;
   portada;
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private dashboardService: UsuarioService
   ) {
+    this.holax = false;
     this.busqueda = "";
     this.ok = true;
     this.cliente = null;
@@ -41,9 +44,14 @@ export class HomeComponent implements OnInit {
     this.position = 0;
   }
 
-
+activar(){
+  js.activatePaypal();
+}
 
   ngOnInit() {
+  
+    localStorage.removeItem('firebase:previous_websocket_failure');
+
     this.cliente = localStorage.getItem("cliente");
     if(this.cliente === null){
       this.ok = true;
